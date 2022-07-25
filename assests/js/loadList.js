@@ -1,6 +1,9 @@
-// Do du lieu 
+// import listSongs from "./listSong";
+console.log(listSongs);
+
+// Do du lieu
 function renderList(listSong) {
-    let list = document.querySelector('.list');
+    let list = document.querySelector(".list");
     let htmls = listSong.map((song) => {
         return `
             <li class="item" id="${song.id}">
@@ -12,21 +15,21 @@ function renderList(listSong) {
             </li> 
         `;
     });
-    list.innerHTML = htmls.join('');
+    list.innerHTML = htmls.join("");
 }
 renderList(listSongs);
 
 // Xu ly khi bam vao bai hat trong danh sach bai hat
-let songItems = document.querySelectorAll('.item');
+let songItems = document.querySelectorAll(".item");
 songItems.forEach((songItem) => {
-    songItem.addEventListener('click', () => {
+    songItem.addEventListener("click", () => {
         indexSong = songItem.id - 1;
         currentSong = listSongs[indexSong];
         loadSong(currentSong);
         song.play();
         setInterval(displayTime, 500);
-        playIcon.classList.remove('play-active');
-        pauseIcon.classList.add('play-active');
+        playIcon.classList.remove("play-active");
+        pauseIcon.classList.add("play-active");
         isPlaying = true;
-    })
+    });
 });
